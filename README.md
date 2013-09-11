@@ -1,3 +1,12 @@
+This is a copy of DayZMapper from wterpstra
+https://github.com/wterpstra/DayZMapper
+This copy has been modified to work with Epoch.
+
+<b>Things that I didn't get working with Epoch:</b>
+<pre>
+- Camps
+</pre>
+
 <b>Supported Maps</b>
 <pre>
 - Chernarus
@@ -45,5 +54,3 @@ maps/chernarus.jpg 	// the map file that is loaded.
 1000 				// map X size in meters, these can be found in the dayz database
 1000 				// map Y size in meters
 </pre>
-
-If you have any questions ask zamp @ freenode/ircnet/quakenet/whatever just whois me.
