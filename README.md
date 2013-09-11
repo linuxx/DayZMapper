@@ -4,7 +4,7 @@ This copy has been modified to work with Epoch.
 
 <b>Things that I didn't get working with Epoch:</b>
 <pre>
-- Camps
+- Deployables (buildings and such...)
 </pre>
 
 <b>Supported Maps</b>
