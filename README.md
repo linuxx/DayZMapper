@@ -7,6 +7,13 @@ This copy has been modified to work with Epoch.
 - Deployables (buildings and such...)
 </pre>
 
+<b>Tested with:</b>
+<pre>
+- Windows Server 2008 R2 Standard Edition Service Pack 1
+- Apache 2.4
+- PHP Version 5.4.4
+</pre>
+
 <b>Supported Maps</b>
 <pre>
 - Chernarus
