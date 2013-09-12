@@ -18,26 +18,25 @@ try {
 echo '<stuff>' . "\n";
 echo "\t<icons>".($config['icons']?"true":"false")."</icons>\n";
 
-// Fetch players
 $query = $db->prepare("SELECT
-	s.id,
-	s.model,
-	s.state,
-	s.worldspace,
-	s.inventory,
-	p.name,
-	p.humanity,
-	s.last_updated,
-	concat(s.survivor_kills, ' (', p.total_survivor_kills, ')') survivor_kills,
-	concat(s.bandit_kills, ' (', p.total_bandit_kills, ')') bandit_kills
+	s.CharacterID as id,
+	s.Model as model,
+	s.CurrentState as state,
+	s.Worldspace as worldspace,
+	s.Inventory as inventory,
+	p.PlayerName as name,
+	s.Humanity as humanity,
+	s.Datestamp as last_updated,
+	s.KillsH as survivor_kills,
+	s.KillsB as bandit_kills
 FROM
-	survivor s
+	Character_DATA s
 INNER JOIN
-	profile p on p.unique_id = s.unique_id
+	Player_DATA p on p.PlayerUID = s.PlayerUID
 WHERE
-	s.last_updated > DATE_SUB(now(), INTERVAL 5 MINUTE)
+	s.LastLogin > DATE_SUB(now(), INTERVAL 12 HOUR)
 AND
-	s.is_dead = 0");
+	s.Alive = 1");
 
 $query->execute(array($config['instance']));
 $rows = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -60,22 +59,17 @@ foreach($rows as $row)
 	echo "\t" . '</player>' . "\n";
 }
 
-// Fetch vehicles
 $query = $db->prepare("SELECT
-	iv.id as id,
-	iv.worldspace,
-	v.class_name otype,
-	iv.inventory,
-	iv.last_updated
+	iv.ObjectID as id,
+	iv.Worldspace as worldspace,
+	iv.ClassName as otype,
+	iv.inventory as inventory,
+	iv.Datestamp as last_updated
 FROM
-	instance_vehicle iv
-JOIN
-	world_vehicle wv on iv.world_vehicle_id = wv.id
-JOIN
-	vehicle v on wv.vehicle_id = v.id
-WHERE
-	iv.instance_id = ?");
-
+	Object_DATA iv
+WHERE 
+	Fuel > 0.00001");
+	
 $query->execute(array($config['instance']));
 $rows = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -95,7 +89,7 @@ foreach($rows as $row)
 	}
 	echo "\t" . '</vehicle>' . "\n";
 }
-
+/*
 // Fetch deployables
 $query = $db->prepare("SELECT
 	id.id,
@@ -127,7 +121,7 @@ foreach($rows as $row)
 	}
 	echo "\t" . '</deployable>' . "\n";
 }
-
+*/
 echo '</stuff>' . "\n";
 
 ?>
