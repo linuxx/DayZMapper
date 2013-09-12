@@ -5,6 +5,8 @@ This copy has been modified to work with Epoch. My modifications are a complete 
 <b>Things that I didn't get working with Epoch:</b>
 <pre>
 - Deployables (buildings and such...)
+- Survivors killed total
+- Bandit killed total
 </pre>
 
 <b>Tested with:</b>
