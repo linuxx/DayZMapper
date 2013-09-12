@@ -1,6 +1,6 @@
 This is a copy of DayZMapper from wterpstra
 https://github.com/wterpstra/DayZMapper
-This copy has been modified to work with Epoch.
+This copy has been modified to work with Epoch. This is a complete hack, but it seems to work for me. 
 
 <b>Things that I didn't get working with Epoch:</b>
 <pre>
@@ -9,10 +9,38 @@ This copy has been modified to work with Epoch.
 
 <b>Tested with:</b>
 <pre>
+- Epoch Version 1.0.2.1
+
 - Windows Server 2008 R2 Standard Edition Service Pack 1
 - Apache 2.4
 - PHP Version 5.4.4
+
+- Ubuntu 12.04.2 LTS
+- Apache 2.2.22 
+- PHP Version 5.3.10-1ubuntu3.8
+
+- MySQL 5.5.28
+- Firefox 23
+- Chrome 29
 </pre>
+
+<b>Caveats</b>
+<pre>
+
+Doesn't seem to work in Internet Explorer. I dont use Internet Explorer, so I didn't attempt to fix this...
+
+Epoch doesn't save a timestamp when data is committed to the database. So I had to use last login time. I set the query to show players that have logged in within the last 12 hours. You can change this in bin/data.php...
+Locate:
+s.LastLogin > DATE_SUB(now(), INTERVAL 12 HOUR)
+Change "12 HOUR" to whatever you want (DAY, HOUR, MINUTE) Examples:
+s.LastLogin > DATE_SUB(now(), INTERVAL 15 MINUTE)
+s.LastLogin > DATE_SUB(now(), INTERVAL 2 HOUR)
+s.LastLogin > DATE_SUB(now(), INTERVAL 1 DAY)
+
+</pre>
+
+
+....................................
 
 <b>Supported Maps</b>
 <pre>
