@@ -27,8 +27,8 @@ $query = $db->prepare("SELECT
 	p.PlayerName as name,
 	s.Humanity as humanity,
 	s.Datestamp as last_updated,
-	concat(s.KillsH, ' (', s.KillsH, ')') survivor_kills,
-	concat(s.KillsB, ' (',s.KillsB, ')') bandit_kills
+	s.KillsH as hkills,
+	s.KillsB as bkills
 FROM
 	Character_DATA s
 INNER JOIN
