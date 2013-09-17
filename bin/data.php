@@ -1,5 +1,4 @@
 <?php
-// Works with schema 0.36
 error_reporting(0);
 
 header('Content-Type: text/plain');
@@ -24,6 +23,7 @@ $query = $db->prepare("SELECT
 	s.CurrentState as state,
 	s.Worldspace as worldspace,
 	s.Inventory as inventory,
+	s.Backpack as backpack,
 	p.PlayerName as name,
 	s.Humanity as humanity,
 	s.Datestamp as last_updated,

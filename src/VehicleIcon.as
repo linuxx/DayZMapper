@@ -20,7 +20,7 @@ package
 	{
 		private var _id:int = -1;
 		private var _tooltip:Sprite;
-		private var _maxAge:Number = 604800; // a week
+		//private var _maxAge:Number = 604800; // a week
 		
 		private var _oldpositions:Vector.<Point> = new Vector.<Point>;
 		
@@ -84,7 +84,6 @@ package
 			tf.htmlText = data.otype + "\n";
 			
 			var inv:Array = JSON.decode(data.inventory);
-			//Logging.getLogger(PlayerIcon).info(inv);
 			for (var i:int = 0; i < inv.length; ++i)
 			{
 				for (var j:int = 0; j < inv[i][0].length; ++j)
@@ -92,6 +91,7 @@ package
 					tf.htmlText += inv[i][1][j] + "x " + inv[i][0][j] + "\n";
 				}
 			}
+			
 			_tooltip.x = Math.floor(coords.x + 10);
 			_tooltip.y = Math.floor(coords.y);
 			

@@ -24,165 +24,7 @@ package
 		private var _maxAge:Number = 300; // an hour
 		
 		private var _oldpositions:Vector.<Point> = new Vector.<Point>;
-		
-		// list of weapons that will show up in player tooltip
-		private var weapons:Array = [
-			"Pistol",
-			"M9",
-			"M9SD",
-			"Makarov",
-			"MakarovSD",
-			"GrenadeLauncher",
-			"Rifle",
-			"M16_base",
-			"M16A2",
-			"M16A2GL",
-			"m16a4",
-			"m16a4_acg",
-			"M16A4_GL",
-			"M16A4_ACG_GL",
-			"M24",
-			"M40A3",
-			"M240",
-			"M240_DZ",
-			"Mk_48",
-			"M249",
-			"M4A1",
-			"M4A1_Aim",
-			"M4A1_Aim_camo",
-			"M4SPR",
-			"M4A1_RCO_GL",
-			"M4A1_AIM_SD_camo",
-			"M4A1_HWS_GL_SD_Camo",
-			"M4A1_HWS_GL",
-			"M4A1_HWS_GL_camo",
-			"MP5SD",
-			"MP5A5",
-			"PK",
-			"SVD",
-			"SVD_CAMO",
-			"Launcher",
-			"PipeBomb",
-			"SmokeLauncher",
-			"FlareLauncher",
-			"M240_veh",
-			"M240_veh_2",
-			"M240_veh_MG_Nest",
-			"SEARCHLIGHT",
-			"AK_BASE",
-			"AKS_BASE",
-			"AK_107_BASE",
-			"AK_47_M",
-			"AK_47_S",
-			"AK_74",
-			"AK_74_GL",
-			"AK_107_kobra",
-			"AK_107_GL_kobra",
-			"AK_107_pso",
-			"AKS_74_kobra",
-			"AKS_74_pso",
-			"AKS_74_U",
-			"RPK_74",
-			"bizon",
-			"bizon_silenced",
-			"Colt1911",
-			"DMR_DZ",
-			"M1014",
-			"huntingrifle",
-			"MR43",
-			"PKT_2",
-			"BAF_L2A1",
-			"BAF_M240_veh",
-			"BAF_L7A2",
-			"BAF_L94A1",
-			"BAF_static_GMG",
-			"BAF_GMG",
-			"L85A2_base_BAF",
-			"BAF_L85A2_RIS_Holo",
-			"BAF_L85A2_RIS_SUSAT",
-			"M242BC",
-			"M240BC_veh",
-			"Sa61_EP1",
-			"UZI_EP1",
-			"revolver_EP1",
-			"glock17_EP1",
-			"M60A4_EP1",
-			"Mk_48_DES_EP1",
-			"M249_EP1",
-			"M24_des_EP1",
-			"SVD_des_EP1",
-			"SVD_NSPU_EP1",
-			"Sa58P_EP1",
-			"Sa58V_EP1",
-			"Sa58V_RCO_EP1",
-			"Sa58V_CCO_EP1",
-			"M4A3_CCO_EP1",
-			"M4A3_RCO_GL_EP1",
-			"AK_74_GL_kobra",
-			"AKS_74",
-			"FN_FAL",
-			"FN_FAL_ANPVS4",
-			"G36C_camo",
-			"G36A_camo",
-			"G36K_camo",
-			"G36C",
-			"G36a",
-			"G36K",
-			"LeeEnfield",
-			"M14_EP1",
-			"m240_scoped_EP1",
-			"SCAR_L_Base",
-			"SCAR_L_CQC",
-			"KSVK",
-			"Remington870_lamp",
-			"M4A3_CCO_EP1",
-			"M4A1_AIM_SD_camo",
-			"BAF_L85A2_RIS_CWS",
-			"BAF_AS50_scoped",
-			"Winchester1866",
-			"revolver_EP1",
-			"FN_FAL",
-			"FN_FAL_ANPVS4",
-			"Mk_48_DZ",
-			"DMR",
-			"M16A2",
-			"M16A2GL",
-			"bizon_silenced",
-			"AK_74",
-			"M4A1_Aim",
-			"AKS_74_U",
-			"AK_47_M",
-			"M24",
-			"M1014",
-			"M4A1",
-			"MP5SD",
-			"MP5A5",
-			"huntingrifle",
-			"Crossbow",
-			"Crossbow_DZ",
-			"glock17_EP1",
-			"M9",
-			"M9SD",
-			"Colt1911",
-			"m16a4_acg",
-			"SVD_Camo",
-			"M107_DZ",
-			"M249_DZ",
-			"MeleeHatchet",
-			"MeleeMachete",
-			"MeleeCrowbar",
-			"MeleeBaseBallbat"
-		];
-		
-		// list of key items that will show up in player tooltip
-		private var keyItems:Array = [
-			"Binocular_Vector",
-			"NVGoggles",
-			"ItemGPS",
-			"ItemTent"
-		];
-		
-		
+
 		private var _data:XML;
 		
 		[Embed(source="pf_tempesta_seven.ttf", fontName="pf_tempesta", mimeType = "application/x-font", embedAsCFF = "false")]
@@ -204,7 +46,7 @@ package
 			var coords:Point = Main.convertCoords(data.x, data.y);
 			updateGraphic(coords.x,coords.y,0xFF0000);
 			
-			updateAlpha(data.age);
+			//updateAlpha(data.age);
 			
 			_oldpositions.unshift(coords.clone());
 			
@@ -244,11 +86,12 @@ package
 			tf.textColor = 0xFFFFFF;
 			tf.x = 2;
 			tf.y = 0;
-			tf.width = 120;
+			tf.width = 1000;
 			tf.height = 1000;
 			tf.selectable = false;
 			tf.multiline = true;
-			tf.htmlText = data.name + " <font color=\"#80ff80\">" + data.model + "</font>\n";
+			tf.htmlText = "                     \n";
+			tf.htmlText += data.name + " <font color=\"#80ff80\">" + data.model + "</font>\n";
 			var humanity:Number = data.humanity;
 			if (humanity < 0)
 				tf.htmlText += "Humanity: <font color=\"#ff4040\">" + data.humanity + "</font>\n";
@@ -257,18 +100,61 @@ package
 			
 			tf.htmlText += "Bandit kills: " + data.bkills + "\n";
 			tf.htmlText += "Survivor kills: " + data.hkills + "\n";
+			tf.htmlText += "\n";
 			var inv:Array = JSON.decode(data.inventory);
 			//Logging.getLogger(PlayerIcon).info(inv);
+			
+			//********************************************************************
+			//Linuxx Note: I dont know crap about AS.... This is my best attemt...
+			//********************************************************************
+			//the inventory
 			if (inv.length > 1)
 			{
 				for (var i:int = 0; i < inv[0].length; ++i)
-					if (weapons.indexOf(inv[0][i]) != -1)
-						tf.htmlText += "<font color=\"#ff4040\">" + inv[0][i] + "</font>\n";
-				
-				for (i = 0; i < inv[0].length; ++i)
-					if (keyItems.indexOf(inv[0][i]) != -1)
-						tf.htmlText += "<font color=\"#8080ff\">" + inv[0][i] + "</font>\n";
+				{					
+					tf.htmlText += inv[0][i] + "\n";
+				}
 			}
+			tf.htmlText += "\n";
+			
+			//backpack
+			var pack:Array = JSON.decode(data.backpack);
+			var pack_name:String = pack[0];
+			if(pack_name.length > 2) //if this itemis empty, it will have 1 character, a comma, so if it has more than a comma, its has data
+			{
+				tf.htmlText += "Backpack: <font color=\"#80ff80\">" + pack_name + "</font>\n";
+			}
+
+			//guns, NV_Goggles, etc
+			var guns:String = pack[1];
+			if (guns.length > 2) //if this itemis empty, it will have 1 character, a comma, so if it has more than a comma, its has data
+			{
+				tf.htmlText += "<font color=\"#FFFF00\">Guns in bag:</font>\n";
+				var arr_guns:Array = guns.split(",");
+				for (var intY:int = 0; intY < arr_guns.length / 2; intY++)
+				{
+					tf.htmlText += arr_guns[intY];
+				}
+			}
+			
+			//ammo, food, etc
+			var str_packitems:String = pack[2];
+			if (str_packitems.length > 2) //if this itemis empty, it will have 1 character, a comma, so if it has more than a comma, its has data
+			{
+				tf.htmlText += "<font color=\"#FFFF00\">Items:</font>\n";
+				//the backpack data is in the form of itemA,itemB,itemC,2(cound of itemA),3(cound of itemB),1(cound of itemC)  -- In this code, I create an array, then split it down the middle
+				var arr_packitems:Array = str_packitems.split(",");
+				var int_pack_count:int = arr_packitems.length / 2;
+				for (var intX:int = 0; intX < int_pack_count; intX++)
+				{
+					//now intX should be the item, and (int_pack_count + intX) should be the cound of the items
+					tf.htmlText += arr_packitems[intX] + " x" + arr_packitems[int_pack_count + intX];		
+				}
+			}
+			//********************************************************************
+			//          				End attempt
+			//********************************************************************
+			
 			
 			_tooltip.x = Math.floor(coords.x + 10);
 			_tooltip.y = Math.floor(coords.y);
@@ -329,7 +215,7 @@ package
 			var coords:Point = Main.convertCoords(data.x, data.y);
 			updateGraphic(coords.x,coords.y,0xFF0000);
 			
-			updateAlpha(data.age);
+			//updateAlpha(data.age);
 			buildTooltip(data, coords);
 			
 			if (coords.length > 1)
