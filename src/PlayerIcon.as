@@ -91,15 +91,19 @@ package
 			tf.selectable = false;
 			tf.multiline = true;
 			tf.htmlText = "                     \n";
-			tf.htmlText += data.name + " <font color=\"#80ff80\">" + data.model + "</font>\n";
+			tf.htmlText += "<font color=\"#FFFF00\">Player ID:</font> <font color=\"#80ff80\">" + data.id + "</font>\n";
+			tf.htmlText += "<font color=\"#FFFF00\">Player UID:</font> <font color=\"#80ff80\">" + data.playerUID + "</font>\n";
+			tf.htmlText += "<font color=\"#FFFF00\">Player Name:</font> <font color=\"#80ff80\">" + data.name + "</font>\n";
+			tf.htmlText += "<font color=\"#FFFF00\">Player Skin:</font> <font color=\"#80ff80\">" + data.model + "</font>\n";
+			//tf.htmlText += data.name + " <font color=\"#80ff80\">" + data.model + "</font>\n";
 			var humanity:Number = data.humanity;
 			if (humanity < 0)
-				tf.htmlText += "Humanity: <font color=\"#ff4040\">" + data.humanity + "</font>\n";
+				tf.htmlText += "<font color=\"#FFFF00\">Humanity:</font> <font color=\"#ff4040\">" + data.humanity + "</font>\n";
 			else
-				tf.htmlText += "Humanity: <font color=\"#40ff40\">" + data.humanity + "</font>\n";
+				tf.htmlText += "<font color=\"#FFFF00\">Humanity:</font> <font color=\"#40ff40\">" + data.humanity + "</font>\n";
 			
-			tf.htmlText += "Bandit kills: " + data.bkills + "\n";
-			tf.htmlText += "Survivor kills: " + data.hkills + "\n";
+			tf.htmlText += "<font color=\"#FFFF00\">Bandit kills:</font> " + data.bkills + "\n";
+			tf.htmlText += "<font color=\"#FFFF00\">Survivor kills:</font> " + data.hkills + "\n";
 			tf.htmlText += "\n";
 			var inv:Array = JSON.decode(data.inventory);
 			//Logging.getLogger(PlayerIcon).info(inv);
@@ -108,11 +112,39 @@ package
 			//Linuxx Note: I dont know crap about AS.... This is my best attemt...
 			//********************************************************************
 			//the inventory
+			tf.htmlText += "<font color=\"#FFFF00\">Gear:</font>\n";
 			if (inv.length > 1)
 			{
 				for (var i:int = 0; i < inv[0].length; ++i)
 				{					
 					tf.htmlText += inv[0][i] + "\n";
+				}
+				var strTemp:String = "";
+				var intTempCount:int = 1;
+				for (var r:int = 0; r < inv[1].length; ++r)
+				{		
+					//if we are not looking at the first item...
+					if (r > 0)
+					{
+						//second++ items in inventory
+						if (inv[1][r] == strTemp)
+						{
+							//the previous item was the same, so its multiples
+							intTempCount++;
+						}
+						else
+						{
+							//it was a new item, so we are going to see if there is more
+							tf.htmlText += strTemp + " x" + intTempCount.toString() + "\n";
+							intTempCount = 1;
+						}
+					}
+					strTemp = inv[1][r];
+					if (r == (inv[1].length - 1))
+					{
+						//last item in the inventory
+						tf.htmlText += strTemp + " x" + intTempCount.toString() + "\n";
+					}
 				}
 			}
 			tf.htmlText += "\n";
@@ -122,14 +154,14 @@ package
 			var pack_name:String = pack[0];
 			if(pack_name.length > 2) //if this itemis empty, it will have 1 character, a comma, so if it has more than a comma, its has data
 			{
-				tf.htmlText += "Backpack: <font color=\"#80ff80\">" + pack_name + "</font>\n";
+				tf.htmlText += "<font color=\"#FFFF00\">Backpack:</font> <font color=\"#80ff80\">" + pack_name + "</font>\n";
 			}
 
 			//guns, NV_Goggles, etc
 			var guns:String = pack[1];
 			if (guns.length > 2) //if this itemis empty, it will have 1 character, a comma, so if it has more than a comma, its has data
 			{
-				tf.htmlText += "<font color=\"#FFFF00\">Guns in bag:</font>\n";
+				tf.htmlText += "<font color=\"#FFFF00\">Special items in bag:</font>\n";
 				var arr_guns:Array = guns.split(",");
 				for (var intY:int = 0; intY < arr_guns.length / 2; intY++)
 				{

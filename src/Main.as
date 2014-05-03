@@ -41,7 +41,7 @@ package
 		
 		private var _map:Sprite;
 		private var _xmlUrl:String = "data.php";
-		private var _mapUrl:String = "map.txt";
+		private var _mapUrl:String = "map.php";
 		private var _players:Vector.<PlayerIcon> = new Vector.<PlayerIcon>;
 		private var _timer:Timer = new Timer(10000);
 		private var _vehicles:Vector.<VehicleIcon> = new Vector.<VehicleIcon>;
@@ -320,7 +320,7 @@ package
 			_icons = str2bool(xml.icons);
 			
 			//Logging.getLogger(Main).info(xml);
-			
+			var int_count:int = 0;
 			for each (var player:XML in xml.player)
 			{
 				// search for icon with the same id
@@ -345,8 +345,13 @@ package
 					_map.addChild(pi);
 					_players.push(pi);
 				}
+				int_count++;
 			}
-			
+			if (int_count > 0)
+			{
+				_loadingTF.htmlText = "<font color=\"#FFFF00\">Loaded " + int_count.toString() + " Players</font>\n";
+			}
+			int_count = 0;
 			for each (var vehicle:XML in xml.vehicle)
 			{
 				// search for icon with the same id
@@ -371,6 +376,11 @@ package
 					_map.addChild(vehicl);
 					_vehicles.push(vehicl);
 				}
+				int_count++;
+			}
+			if (int_count > 0)
+			{
+				_loadingTF.htmlText += "<font color=\"#FFFF00\">Loaded " + int_count.toString() + " Vehicles</font>";
 			}
 			
 			for each (var deployable:XML in xml.deployable)

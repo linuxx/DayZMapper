@@ -9,4 +9,16 @@ $db['database'] = "dayz"; // MySQL Database
 $config = array();
 $config['instance'] = 1; // Instance number
 $config['icons'] = true;
+
+
+$config['map_name'] = "chernarus"; //which map to show
+// Valid values are
+// chernarus
+// taviana
+// lingor
+// namalsk
+// panthera
+// takistan
+
+
 ?>

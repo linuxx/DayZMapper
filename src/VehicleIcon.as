@@ -81,8 +81,11 @@ package
 			tf.height = 1000;
 			tf.selectable = false;
 			tf.multiline = true;
-			tf.htmlText = data.otype + "\n";
-			
+			//tf.htmlText = data.otype + "\n";
+			tf.htmlText = "                     \n";
+			tf.htmlText += "ID: <font color=\"#40ff40\">" + data.id + "</font>\n";
+			tf.htmlText += "Type: <font color=\"#40ff40\">" + data.otype + "</font>\n";
+			tf.htmlText += "<font color=\"#FFFF00\">Gear:</font>\n";
 			var inv:Array = JSON.decode(data.inventory);
 			for (var i:int = 0; i < inv.length; ++i)
 			{
