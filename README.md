@@ -59,16 +59,7 @@ s.LastLogin > DATE_SUB(now(), INTERVAL 1 DAY)
 will need either apache or some other http server that can handle php)
 2. Rename example_config.php to config.php
 3. Change config.php to have your username/password/hostname etc.
-4. Copy one map txt file from maps to where dayzmapper.swf is and rename to map.txt
 5. Point your browser to wherever you copied stuff to.
-</pre>
-
-<b>TODO:</b>
-<pre>
-- Toggle for showing out of map positions
-- Click to follow player/vehicle automatically
-- Fix memory usage issue when left running for long periods
-- Automatic screenshot every X minutes (manual saving possible via console saveScreenshot command)
 </pre>
 
 <b>Optional Stuff:</b>
