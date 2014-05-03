@@ -43,7 +43,7 @@ switch($config['map_name'])
 header('Content-Type: text/plain');
 header('Content-Disposition: attachment; filename=map.txt');
 header('Content-Transfer-Encoding: binary');
-header('Content-Length: ' . strlen($$strMapFile));
+header('Content-Length: ' . strlen($strMapFile));
 
 echo $strMapFile;
 

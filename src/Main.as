@@ -194,28 +194,28 @@ package
 			if (_showTents)
 			{
 				for each (var d:DeployableIcon in _deployables)
-					TweenLite.to(d, 1, { alpha:1 } );
+					TweenLite.to(d, 1, { alpha:1, onStart:setIconVisibility, onStartParams:[d, true] } );
 			} else {
 				for each (d in _deployables)
-					TweenLite.to(d, 1, { alpha:0 } );
+					TweenLite.to(d, 1, { alpha:0, onComplete:setIconVisibility, onCompleteParams:[d, false] } );
 			}
 			
 			if (_showVehicles)
 			{
 				for each (var v:VehicleIcon in _vehicles)
-					TweenLite.to(v, 1, { alpha:1 } );
+					TweenLite.to(v, 1, { alpha:1, onStart:setIconVisibility, onStartParams:[v, true]} );	
 			} else {
 				for each (v in _vehicles)
-					TweenLite.to(v, 1, { alpha:0 } );
+					TweenLite.to(v, 1, { alpha:0, onComplete:setIconVisibility, onCompleteParams:[v, false]} );
 			}
 			
 			if (_showPlayers)
 			{
 				for each (var p:PlayerIcon in _players)
-					TweenLite.to(p, 1, { alpha:1 } );
+					TweenLite.to(p, 1, { alpha:1, onStart:setIconVisibility, onStartParams:[p, true] } );
 			} else {
 				for each (p in _players)
-					TweenLite.to(p, 1, { alpha:0 } );
+					TweenLite.to(p, 1, { alpha:0, onComplete:setIconVisibility, onCompleteParams:[p, false] } );
 			}
 		}
 		
@@ -420,6 +420,11 @@ package
 			return _icons;
 		}
 		
+		public function setIconVisibility(icon:Sprite, visibilty:Boolean):void
+ 		{
+ 			icon.visible = visibilty;
+ 		}
+ 
 		public static function convertCoords(x:Number, y:Number):Point
 		{
 			x += OFFSET_X;
