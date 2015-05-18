@@ -50,6 +50,7 @@ s.LastLogin > DATE_SUB(now(), INTERVAL 1 DAY)
 - Panthera
 - Takistan
 - Taviana
+- Napf
 </pre>
 
 <b>How to install:</b>

@@ -19,6 +19,7 @@ $config['map_name'] = "chernarus"; //which map to show
 // namalsk
 // panthera
 // takistan
+// napf
 
 
 ?>

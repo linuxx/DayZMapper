@@ -33,6 +33,11 @@ switch($config['map_name'])
 		$strMapFile = "maps/takistan.jpg\r\n2341\r\n2386\r\n165\r\n-2432\r\n13000\r\n13000";
 		break;
 	}
+	case "napf":
+	{
+		$strMapFile = "maps/napf.jpg\r\n5121\r\n5121\r\n50\r\n5050\r\n20400\r\n20400";
+		break;
+	}
 	default:
 	{
 		//default is chernarus
