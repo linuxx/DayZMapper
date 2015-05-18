@@ -69,15 +69,4 @@ Open console with CTRL+SHIFT+ENTER
 
 Create .htaccess file to password protect the website. See http://httpd.apache.org/docs/current/howto/htaccess.html
 
-If you want to use your own map graphic you need to specify certain values in the map.txt
-
-Here is an example map.txt with comments (Do not add comments in the map.txt otherwise it will not work!)
-<pre>
-maps/chernarus.jpg 	// the map file that is loaded.
-1234 				// image width in pixels
-4321 				// image height in pixels
-100 				// origo X offset in meters, origo means coordinates 0,0
-30 					// origo Y offset in meters
-1000 				// map X size in meters, these can be found in the dayz database
-1000 				// map Y size in meters
-</pre>
+If you want to use your own map graphic see map.php

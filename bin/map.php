@@ -3,6 +3,23 @@ session_start();
 include('config.php');
 switch($config['map_name'])
 {
+/*
+string should have the following fields
+
+pathToMap \r\n
+image width in pixels \r\n
+image height in pixels \r\n
+origo X offset in meters, origo means coordinates 0,0 \r\n
+origo Y offset in meters \r\n
+map X size in meters, these can be found in the dayz database \r\n
+map Y size in meters \r\n
+
+this could be done more elegantly, if you want it done better, feel free to code it.
+
+
+*/
+
+
 	case "chernarus":
 	{
 		$strMapFile = "maps/chernarus.jpg\r\n2047\r\n1982\r\n-700\r\n-370\r\n14300\r\n13850";
